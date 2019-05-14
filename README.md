@@ -20,8 +20,7 @@ Vous devez tout d'abord definir un nom de machine en modifiant le fichier hostna
 
 **hostnamectl set-hostname `ghost`**
 
-Vous devez par la suite modifier votre fichier hosts pour permettre une résolution locale des noms à partir des adresses IP. 
-Cela se fait dans le fichier : `/etc/hosts`
+Vous devez par la suite modifier votre fichier hosts pour permettre une résolution locale des noms à partir des adresses IP.  Cela se fait dans le fichier : `/etc/hosts`
 
 ```
 cat <<-EOF > /etc/hosts
@@ -54,11 +53,11 @@ L'installation du service est classique, le nom du paquet à installer est : `bi
 
 ### Configuration de Bind9
 
-Les fichiers de configuration se trouvent sous : `/etc/bind/`
-Le fichier principal de configuration de `bind9` est le fichier `named.conf.local`. 
-Dans ce dernier, vous pourrez configurer vos zones; 
-02 zones sont à déclarer : 
-	- la zone domaine : `famous.com`
+Les fichiers de configuration se trouvent sous : `/etc/bind/`  
+Le fichier principal de configuration de `bind9` est le fichier `named.conf.local`.  
+Dans ce dernier, vous pourrez configurer vos zones;  
+02 zones sont à déclarer :  
+	- la zone domaine : `famous.com`  
 	- la zone inverse associée : `1.168.192.in-addr.arpa` Cette dernière permet de traduire vos adresses Ip en noms de domaines.
 
 ```
