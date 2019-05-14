@@ -8,7 +8,7 @@ Un nom de domaine, pour faire simple, est la partie d’une URL (adresse interne
 
 ## Pré-requis
 
-On considère que : 
+On considère que :  
 **MyHostname** = ghost  
 **Mydomain** = famous.com  
 **My@ip** = 192.168.1.1  
