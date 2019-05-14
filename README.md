@@ -9,10 +9,10 @@ Un nom de domaine, pour faire simple, est la partie d’une URL (adresse interne
 ## Pré-requis
 
 On considère que : 
-**MyHostname** = ghost
-**Mydomain** = famous.com
-**My@ip** = 192.168.1.1
-**Un serveur mail** = 192.168.1.2
+**MyHostname** = ghost  
+**Mydomain** = famous.com  
+**My@ip** = 192.168.1.1  
+**Un serveur mail** = 192.168.1.2  
 **Un serveur web** = 192.168.1.3
 
 ### Preconf du serveur
