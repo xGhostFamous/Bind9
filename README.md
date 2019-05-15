@@ -57,8 +57,8 @@ Les fichiers de configuration se trouvent sous : `/etc/bind/`
 Le fichier principal de configuration de `bind9` est le fichier `named.conf.local`.  
 Dans ce dernier, vous pourrez configurer vos zones;  
 02 zones sont à déclarer :  
-	- la zone domaine : `famous.com`  
-	- la zone inverse associée : `1.168.192.in-addr.arpa` Cette dernière permet de traduire vos adresses Ip en noms de domaines.
+- la zone domaine : `famous.com`  
+- la zone inverse associée : `1.168.192.in-addr.arpa` Cette dernière permet de traduire vos adresses Ip en noms de domaines.  
 
 ```
 cat <<-EOF > etc/bind/named.conf.local
@@ -74,10 +74,10 @@ zone "1.168.192.in-addr.arpa" {
 EOF
 ```
 
-Il vous faudra alors créer ces 02 fichiers de zones et les éditer comme suit :
-
-`/etc/bind/db.famous.com`
+Il vous faudra alors créer ces 02 fichiers de zones et les éditer comme suit :  
+- le fichier de zone `db.famous.com`
 ```
+cat <<-EOF > /etc/bind/db.famous.com
 $TTL    604800
 
 @       IN      SOA     ghost.famous.com. root.famous.com. (
@@ -90,6 +90,25 @@ $TTL    604800
 @       IN      NS      ghost.famous.com.
 
 ghost      A      192.168.10.2
+EOF
 ```
+- le fichier de zone `db.1.168.192`
+```
+cat <<-EOF > /etc/bind/db.famous.com
+$TTL    604800
 
+@       IN      SOA     ghost.famous.com. root.famous.com. (
+                             21         ; Serial
+                         604820         ; Refresh
+                          864500        ; Retry
+                        2419270         ; Expire
+                         604880 )       ; Negative Cache TTL
 
+;
+@       IN      NS      ghost.famous.com.
+
+;
+$ORIGIN 1.168.192.in-addr.arpa.
+1       IN      PTR     ghost.famous.com.
+EOF
+```
