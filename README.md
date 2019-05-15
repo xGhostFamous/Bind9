@@ -20,7 +20,7 @@ On considère que :
 **Mydomain** = mondomaine.com  
 **My@ip** = 192.168.1.1  
 **Un serveur mail** = 192.168.1.2  
-**Un serveur web** = 192.168.1.3
+**Un serveur web** = 192.168.1.3  
 **Une machine cliente** = 192.168.1.4
 
 ### Preconf du serveur
@@ -66,7 +66,7 @@ Le fichier principal de configuration de `bind9` est le fichier `named.conf.loca
 Dans ce dernier, vous pourrez configurer vos zones;  
 02 zones sont à déclarer :  
 - la zone domaine : `mondomaine.com`  
-- la zone inverse associée : `1.168.192.in-addr.arpa` Cette dernière permet de vérifier qu'un nom est valide (Trouver l’adresse IP à partir du nom). `Vous noterez que l'adresse ip est indiquée à l'envers`. On appelle ça la résolution inverse.
+- la zone inverse associée : `1.168.192.in-addr.arpa` Cette dernière permet de vérifier qu'un nom est valide (Trouver l’adresse IP à partir du nom). `Vous noterez que l'adresse ip est indiquée à l'envers, on appelle ça la résolution inverse`.
 
 ```
 cat <<-EOF > etc/bind/named.conf.local
@@ -81,7 +81,7 @@ zone "1.168.192.in-addr.arpa" {
 };
 EOF
 ```
-- type master : Cette ligne indique que le serveur est le serveur principal de ce domaine.
+*type master : Cette ligne indique que le serveur est le serveur principal de ce domaine.
 
 
 Il vous faudra alors créer ces 02 fichiers de zones et les éditer comme suit :  
